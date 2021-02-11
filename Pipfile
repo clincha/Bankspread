@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
+requests = "*"
+python-dotenv = "*"
+gspread = "*"
+gspread_formatting = "*"
 
 [dev-packages]
 
