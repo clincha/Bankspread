@@ -4,5 +4,6 @@ from starling import views
 
 urlpatterns = [
     path('welcome/', views.welcome),
-    path('callback/', views.callback)
+    path('callback/', views.callback),
+    path('transactions/', views.transactions),
 ]
