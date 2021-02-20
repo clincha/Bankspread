@@ -24,6 +24,13 @@ STARLING_REDIRECT_URL = os.getenv('STARLING_REDIRECT_URL')
 STARLING_API_URL = os.getenv('STARLING_BASE_URL') + "/api/v2"
 STARLING_BASE_URL = os.getenv('STARLING_BASE_URL')
 STARLING_OAUTH_URL = os.getenv('STARLING_OAUTH_URL')
+GOOGLE_REDIRECT_URL = os.getenv('GOOGLE_REDIRECT_URL')
+
+# HTTPS Settings
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
