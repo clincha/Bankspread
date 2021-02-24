@@ -10,6 +10,7 @@ python-dotenv = "*"
 gspread = "*"
 gspread_formatting = "*"
 google-api-python-client = "*"
+gunicorn = "*"
 
 [dev-packages]
 

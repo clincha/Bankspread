@@ -31,4 +31,4 @@ def callback(request):
                     credentials=flow.credentials)
     user_info = service.userinfo().get().execute()
     gc = gspread.authorize(flow.credentials)
-    return HttpResponse(gc.open("Finance").sheet1.cell(1, 1))
+    return HttpResponse(gc.open("Finance").sheet1.cell(1, 1).value)
