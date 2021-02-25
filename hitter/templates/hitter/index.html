@@ -19,5 +19,5 @@ Hello! and welcome to the site!
 <br>
 
 {% if starling_login and google_login %}
-    <a href="">Create your spreadsheet!</a>
+    <a href="{% url 'hitter:make-sheet' %}">Create your spreadsheet!</a>
 {% endif %}
