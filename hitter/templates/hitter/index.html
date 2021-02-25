@@ -1,4 +1,23 @@
-Hello! and welcome to the site <br>
+Hello! and welcome to the site!
 
-Starling login {% if starling_login %} has been completed {% endif %} <br>
-Google login {% if google_login %} has been completed {% endif %}
+<br>
+
+{% if starling_login %}
+    You've logged into Starling successfully!
+{% else %}
+    Please <a href="{% url 'starling:welcome' %}">login</a> to Starling.
+{% endif %}
+
+<br>
+
+{% if google_login %}
+    You've logged into Google successfully!
+{% else %}
+    Please <a href="{% url 'sheeter:welcome' %}">login</a> to Google.
+{% endif %}
+
+<br>
+
+{% if starling_login and google_login %}
+    <a href="">Create your spreadsheet!</a>
+{% endif %}

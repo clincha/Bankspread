@@ -2,8 +2,9 @@ from django.urls import path
 
 from starling import views
 
+app_name = 'starling'
 urlpatterns = [
-    path('welcome/', views.welcome),
+    path('welcome/', views.welcome, name='welcome'),
     path('callback/', views.callback),
     path('transactions/', views.transactions),
 ]
