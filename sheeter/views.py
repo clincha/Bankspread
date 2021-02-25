@@ -1,9 +1,13 @@
+import pickle
+
 import gspread
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from google_auth_oauthlib.flow import Flow
 from googleapiclient.discovery import build
+
+from sheeter.models import UserGoogle
 
 GOOGLE_SCOPES = ['https://www.googleapis.com/auth/spreadsheets',
                  'https://www.googleapis.com/auth/drive',
@@ -31,4 +35,11 @@ def callback(request):
                     credentials=flow.credentials)
     user_info = service.userinfo().get().execute()
     gc = gspread.authorize(flow.credentials)
+    request.session['Google'] = user_info['id']
+    user = UserGoogle(
+        id=user_info['id'],
+        email=user_info['email'],
+        credentials=pickle.dumps(flow.credentials)
+    )
+    user.save()
     return HttpResponse(gc.open("Finance").sheet1.cell(1, 1).value)

@@ -55,6 +55,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'starling.apps.StarlingConfig',
     'sheeter.apps.SheeterConfig',
+    'hitter.apps.HitterConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
