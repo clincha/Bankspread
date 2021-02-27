@@ -6,6 +6,7 @@ from django.db import models
 
 
 class Starling(models.Model):
+    id = models.CharField(max_length=4000, primary_key=True)
     access_token = models.CharField(max_length=4000)
     refresh_token = models.CharField(max_length=4000)
     token_expires = models.DateTimeField()

@@ -42,4 +42,4 @@ def callback(request):
         credentials=pickle.dumps(flow.credentials)
     )
     user.save()
-    return HttpResponse(gc.open("Finance").sheet1.cell(1, 1).value)
+    return redirect('hitter:welcome')

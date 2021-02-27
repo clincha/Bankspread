@@ -1,7 +1,7 @@
 import pickle
 
 import gspread
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from sheeter.models import UserGoogle
 from starling.models import Starling
@@ -34,4 +34,4 @@ def make_sheet(request):
 
         gc.create("test").sheet1.append_rows(user_starling.get_full_transaction_history())
 
-    return welcome(request)
+    return redirect('hitter:welcome')

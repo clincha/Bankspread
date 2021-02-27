@@ -4,8 +4,7 @@ import string
 
 import requests
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest
+from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import redirect
 
 from starling.models import Starling
@@ -14,13 +13,6 @@ from starling.models import Starling
 def welcome(request):
     client_id = settings.STARLING_CLIENT_ID
     state = ''.join(random.choice(string.ascii_lowercase) for _ in range(10))
-
-    if 'Starling' in request.session.keys():
-        try:
-            starling = Starling.objects.filter(id=request.session['Starling']).first()
-            return HttpResponse("You are logged in with ID: %s" % starling.id)
-        except ObjectDoesNotExist:
-            return HttpResponseBadRequest('Starling entry does not exist')
 
     request.session.set_expiry(0)  # Session lasts until the browser is closed
     request.session['state'] = state
@@ -48,16 +40,21 @@ def callback(request):
         'grant_type': 'authorization_code',
         'redirect_uri': starling_redirect_url
     }
-    response = requests.post(settings.STARLING_BASE_URL + "/oauth/access-token", data)
-    response_json = response.json()
+    response_json = requests.post(settings.STARLING_BASE_URL + "/oauth/access-token", data).json()
+    headers = {
+        'Authorization': "Bearer " + response_json['access_token']
+    }
+    account_uuid = requests.get(settings.STARLING_API_URL + "/account-holder", headers=headers) \
+        .json()['accountHolderUid']
 
-    starling = Starling(access_token=response_json['access_token'],
+    starling = Starling(id=account_uuid,
+                        access_token=response_json['access_token'],
                         refresh_token=response_json['refresh_token'],
                         token_expires=datetime.datetime.now() + datetime.timedelta(seconds=response_json['expires_in']))
     starling.save()
     request.session['Starling'] = starling.id
 
-    return HttpResponse("You are logged in with ID: %s" % starling.id)
+    return redirect('hitter:welcome')
 
 
 def transactions(request):
