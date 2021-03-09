@@ -14,4 +14,4 @@ COPY . .
 
 RUN ls -la
 
-CMD gunicorn --log-level debug --keyfile host.key --certfile host.cert --bind 0.0.0.0:443 Tumble.wsgi
+CMD gunicorn --log-level debug --keyfile host.key --certfile host.cert --bind 0.0.0.0:443 --forwarded-allow-ips "*" Tumble.wsgi
