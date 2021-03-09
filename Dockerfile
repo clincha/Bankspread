@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 # copy project
 COPY . .
 
-CMD gunicorn --log-level debug --keyfile host.key --certfile host.cert --bind 0.0.0.0:8000 Tumble.wsgi
+CMD gunicorn --log-level debug --keyfile host.key --certfile host.cert --bind 0.0.0.0:443 Tumble.wsgi
