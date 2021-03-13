@@ -45,10 +45,7 @@ SECRET_KEY = 'q+57b2%6+$2zgh$c_=h=lbwvncl(ozb%-oyy-_61pj1^9+&z=a'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "lvh.me",
-    "127.0.0.1",
-    "localhost",
-    "bankspread.com"
+    "web"
 ]
 
 # Application definition
