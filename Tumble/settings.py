@@ -48,7 +48,7 @@ ALLOWED_HOSTS = [
     "lvh.me",
     "127.0.0.1",
     "localhost",
-    "ec2-3-227-0-52.compute-1.amazonaws.com"
+    "bankspread.com"
 ]
 
 # Application definition
