@@ -3,8 +3,8 @@ import pickle
 import gspread
 from django.shortcuts import render, redirect
 
-from sheeter.models import UserGoogle
-from starling.models import Starling
+from web.sheeter.models import UserGoogle
+from web.starling import Starling
 
 
 def home():
@@ -19,7 +19,7 @@ def welcome(request):
     if 'Starling' in request.session.keys():
         context['starling_login'] = True
 
-    return render(request, 'hitter/index.html', context)
+    return render(request, 'hitter/templates/hitter/index.html', context)
 
 
 def make_sheet(request):

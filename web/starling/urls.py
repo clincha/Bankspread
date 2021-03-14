@@ -1,9 +1,10 @@
 from django.urls import path
 
-from sheeter import views
+from web.starling import views
 
-app_name = 'sheeter'
+app_name = 'starling'
 urlpatterns = [
     path('welcome/', views.welcome, name='welcome'),
     path('callback/', views.callback),
+    path('transactions/', views.transactions),
 ]

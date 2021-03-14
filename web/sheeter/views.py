@@ -2,12 +2,11 @@ import pickle
 
 import gspread
 from django.conf import settings
-from django.http import HttpResponse
 from django.shortcuts import redirect
 from google_auth_oauthlib.flow import Flow
 from googleapiclient.discovery import build
 
-from sheeter.models import UserGoogle
+from web.sheeter.models import UserGoogle
 
 GOOGLE_SCOPES = ['https://www.googleapis.com/auth/spreadsheets',
                  'https://www.googleapis.com/auth/drive',

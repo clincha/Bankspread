@@ -26,12 +26,6 @@ STARLING_BASE_URL = os.getenv('STARLING_BASE_URL')
 STARLING_OAUTH_URL = os.getenv('STARLING_OAUTH_URL')
 GOOGLE_REDIRECT_URL = os.getenv('GOOGLE_REDIRECT_URL')
 
-# HTTPS Settings
-
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,7 +71,7 @@ ROOT_URLCONF = 'Tumble.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR / 'web/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {

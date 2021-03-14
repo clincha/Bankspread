@@ -1,6 +1,6 @@
 from django.urls import path
 
-from hitter import views
+from web.hitter import views
 
 app_name = 'hitter'
 urlpatterns = [
