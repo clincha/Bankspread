@@ -25,4 +25,4 @@ RUN python manage.py makemigrations
 
 RUN python manage.py migrate
 
-CMD gunicorn --log-level debug --bind 0.0.0.0=8080 --forwarded-allow-ips "*" Tumble.wsgi
+CMD gunicorn --log-level debug --bind 0.0.0.0:8080 --forwarded-allow-ips "*" Tumble.wsgi
