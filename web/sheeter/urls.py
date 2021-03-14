@@ -1,6 +1,6 @@
 from django.urls import path
 
-from web.sheeter import views
+from sheeter import views
 
 app_name = 'sheeter'
 urlpatterns = [

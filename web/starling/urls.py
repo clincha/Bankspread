@@ -1,6 +1,6 @@
 from django.urls import path
 
-from web.starling import views
+from starling import views
 
 app_name = 'starling'
 urlpatterns = [

@@ -3,8 +3,8 @@ import pickle
 import gspread
 from django.shortcuts import render, redirect
 
-from web.sheeter.models import UserGoogle
-from web.starling import Starling
+from sheeter.models import UserGoogle
+from starling import Starling
 
 
 def home():
