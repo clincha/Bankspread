@@ -10,7 +10,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker build ./web --tag bankspread:${{ github.run_number }} --build-arg STARLING_CLIENT_ID=${STARLING_CLIENT_ID} --build-arg STARLING_CLIENT_SECRET=${STARLING_CLIENT_SECRET} --build-arg STARLING_REDIRECT_URL=${STARLING_REDIRECT_URL} --build-arg STARLING_API_URL=${STARLING_API_URL} --build-arg STARLING_BASE_URL=${STARLING_BASE_URL} --build-arg STARLING_OAUTH_URL=${STARLING_OAUTH_URL} --build-arg GOOGLE_REDIRECT_URL=${GOOGLE_REDIRECT_URL} --build-arg SECRET_KEY=${SECRET_KEY}
+        run: docker build ./web --tag bankspread:${{ github.run_number }} \
+              --build-arg STARLING_CLIENT_ID=${STARLING_CLIENT_ID} \
+              --build-arg STARLING_CLIENT_SECRET=${STARLING_CLIENT_SECRET} \
+              --build-arg STARLING_REDIRECT_URL=${STARLING_REDIRECT_URL} \
+              --build-arg STARLING_API_URL=${STARLING_API_URL} \
+              --build-arg STARLING_BASE_URL=${STARLING_BASE_URL} \
+              --build-arg STARLING_OAUTH_URL=${STARLING_OAUTH_URL} \
+              --build-arg GOOGLE_REDIRECT_URL=${GOOGLE_REDIRECT_URL} \
+              --build-arg SECRET_KEY=${SECRET_KEY}
     env:
       STARLING_CLIENT_ID: "awwfD5ijdU7lilHuSHbH"
       STARLING_CLIENT_SECRET: ${{ secrets.STARLING_CLIENT_SECRET }}
