@@ -1,0 +1,2 @@
+class Starling(object):
+    pass
