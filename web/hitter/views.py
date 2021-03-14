@@ -4,7 +4,7 @@ import gspread
 from django.shortcuts import render, redirect
 
 from sheeter.models import UserGoogle
-from starling import Starling
+from starling.models import Starling
 
 
 def home():
