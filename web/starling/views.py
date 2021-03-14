@@ -7,7 +7,7 @@ from django.conf import settings
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import redirect
 
-from starling import Starling
+from starling.models import Starling
 
 
 def welcome(request):
