@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  Image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,21 +18,7 @@ jobs:
           command: run python decodeServiceAccount.py
 
       - name: Build the Docker image
-        run: docker build ./web --tag bankspread:${{ github.run_number }} --tag bankspread:latest --build-arg STARLING_CLIENT_ID="awwfD5ijdU7lilHuSHbH" --build-arg STARLING_CLIENT_SECRET=${{ secrets.STARLING_CLIENT_SECRET }} --build-arg STARLING_REDIRECT_URL="https://bankspread.com/starling/callback" --build-arg STARLING_API_URL="https://api-sandbox.starlingbank.com/api/v2" --build-arg STARLING_BASE_URL="https://api-sandbox.starlingbank.com" --build-arg STARLING_OAUTH_URL="https://oauth-sandbox.starlingbank.com" --build-arg GOOGLE_REDIRECT_URL="https://bankspread.com/sheeter/callback" --build-arg DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
+        run: docker build ./web --tag clincha/bankspread:${{ github.run_number }} --tag clincha/bankspread:latest --build-arg STARLING_CLIENT_ID="awwfD5ijdU7lilHuSHbH" --build-arg STARLING_CLIENT_SECRET=${{ secrets.STARLING_CLIENT_SECRET }} --build-arg STARLING_REDIRECT_URL="https://bankspread.com/starling/callback" --build-arg STARLING_API_URL="https://api-sandbox.starlingbank.com/api/v2" --build-arg STARLING_BASE_URL="https://api-sandbox.starlingbank.com" --build-arg STARLING_OAUTH_URL="https://oauth-sandbox.starlingbank.com" --build-arg GOOGLE_REDIRECT_URL="https://bankspread.com/sheeter/callback" --build-arg DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
 
-#    steps:
-#      - name: build and push to dockerhub and initiate deploment
-#        uses: yokiworks/deploy-github-action@1.0.10
-#        with:
-#          # The docker container image name
-#          image-name: bankspread
-#          # The dockerfile used by the docker build command
-#          docker-file: ./web/Dockerfile
-#          # Deployment will be invoked on this repo after image push
-#          deploy-action-repo: clincha/bankspread
-#          # Dockerhub username
-#          dockerhub-username: clincha
-#          # Dockerhub password
-#          dockerhub-password: ${{ secrets.DOCKERHUB_PASSWORD }}
-#          # Github personal access token to be used to call the deploy-action-repo
-#          github-pat: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push to DockerHub
+        run: docker image push clincha/bankspread:${{ github.run_number }} clincha/bankspread:latest
