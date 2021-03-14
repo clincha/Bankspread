@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: clincha/bankspread
+    image: clincha/bankspread:latest
     expose:
       - "8080"
   nginx:
