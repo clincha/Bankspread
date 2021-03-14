@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker build ./web --tag bankspread:${{ github.run_number }} --tag bankspread:latest --build-arg STARLING_CLIENT_ID="awwfD5ijdU7lilHuSHbH" --build-arg STARLING_CLIENT_SECRET=${{ secrets.STARLING_CLIENT_SECRET }} --build-arg STARLING_REDIRECT_URL="https://bankspread.com/starling/callback" --build-arg STARLING_API_URL="https://api-sandbox.starlingbank.com/api/v2" --build-arg STARLING_BASE_URL="https://api-sandbox.starlingbank.com" --build-arg STARLING_OAUTH_URL="https://oauth-sandbox.starlingbank.com" --build-arg GOOGLE_REDIRECT_URL="https://bankspread.com/sheeter/callback" --build-arg SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
+        run: docker build ./web --tag bankspread:${{ github.run_number }} --tag bankspread:latest --build-arg STARLING_CLIENT_ID="awwfD5ijdU7lilHuSHbH" --build-arg STARLING_CLIENT_SECRET=${{ secrets.STARLING_CLIENT_SECRET }} --build-arg STARLING_REDIRECT_URL="https://bankspread.com/starling/callback" --build-arg STARLING_API_URL="https://api-sandbox.starlingbank.com/api/v2" --build-arg STARLING_BASE_URL="https://api-sandbox.starlingbank.com" --build-arg STARLING_OAUTH_URL="https://oauth-sandbox.starlingbank.com" --build-arg GOOGLE_REDIRECT_URL="https://bankspread.com/sheeter/callback" --build-arg DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
   push:
     runs-on: ubuntu-latest
     steps:
