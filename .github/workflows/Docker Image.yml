@@ -11,6 +11,15 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build ./web --tag bankspread:${{ github.run_number }}
+      env:
+        STARLING_CLIENT_ID: "awwfD5ijdU7lilHuSHbH"
+        STARLING_CLIENT_SECRET: ${{ secret.STARLING_CLIENT_SECRET }}
+        STARLING_REDIRECT_URL: "https://bankspread.com/starling/callback"
+        STARLING_API_URL: "https://api-sandbox.starlingbank.com/api/v2"
+        STARLING_BASE_URL: "https://api-sandbox.starlingbank.com"
+        STARLING_OAUTH_URL: "https://oauth-sandbox.starlingbank.com"
+        GOOGLE_REDIRECT_URL: "https://bankspread.com/sheeter/callback"
+        SECRET_KEY: ${{ secret.DJANGO_SECRET_KEY }}
   push:
     runs-on: ubuntu-latest
     steps:
