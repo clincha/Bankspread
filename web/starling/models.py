@@ -69,6 +69,8 @@ class Starling(models.Model):
             'Authorization': "Bearer " + self.access_token
         }
         response = requests.get(settings.STARLING_API_URL + "/accounts", headers=headers)
+        print(response.status_code)
+        print(response.text)
         return response.json()['accounts']
 
     def __get_statement_periods(self, account_uid):
