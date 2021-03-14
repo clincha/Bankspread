@@ -19,7 +19,7 @@ def welcome(request):
     if 'Starling' in request.session.keys():
         context['starling_login'] = True
 
-    return render(request, 'templates/hitter/index.html', context)
+    return render(request, 'web/hitter/templates/hitter/index.html', context)
 
 
 def make_sheet(request):
