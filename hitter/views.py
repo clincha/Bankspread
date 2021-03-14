@@ -7,6 +7,10 @@ from sheeter.models import UserGoogle
 from starling.models import Starling
 
 
+def home():
+    redirect('hitter:welcome')
+
+
 def welcome(request):
     context = {}
     if 'Google' in request.session.keys():
