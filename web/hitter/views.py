@@ -7,7 +7,7 @@ from sheeter.models import UserGoogle
 from starling.models import Starling
 
 
-def home():
+def home(request):
     redirect('hitter:welcome')
 
 
