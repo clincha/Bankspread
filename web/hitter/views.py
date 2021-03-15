@@ -8,10 +8,6 @@ from starling.models import Starling
 
 
 def home(request):
-    redirect('hitter:welcome')
-
-
-def welcome(request):
     context = {}
     if 'Google' in request.session.keys():
         context['google_login'] = True
