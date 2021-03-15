@@ -9,7 +9,7 @@ STARLING_OAUTH_URL = "https://oauth-sandbox.starlingbank.com"
 GOOGLE_REDIRECT_URL = "https://bankspread.com/sheeter/callback"
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = [
     "web"
 ]

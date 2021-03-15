@@ -6,6 +6,7 @@ import requests
 from django.conf import settings
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.shortcuts import redirect
+from django.utils import timezone
 
 from starling.models import Starling
 
@@ -50,7 +51,8 @@ def callback(request):
     starling = Starling(id=account_uuid,
                         access_token=response_json['access_token'],
                         refresh_token=response_json['refresh_token'],
-                        token_expires=datetime.datetime.now() + datetime.timedelta(seconds=response_json['expires_in']))
+                        token_expires=datetime.datetime.now(tz=timezone.utc) +
+                                      datetime.timedelta(seconds=response_json['expires_in']))
     starling.save()
     request.session['Starling'] = starling.id
 
