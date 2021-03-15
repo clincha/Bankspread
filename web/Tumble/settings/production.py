@@ -11,7 +11,7 @@ GOOGLE_REDIRECT_URL = "https://bankspread.com/sheeter/callback"
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 DEBUG = False
 ALLOWED_HOSTS = [
-    "bankspread.com"
+    "web"
 ]
 
 DATABASES = {
