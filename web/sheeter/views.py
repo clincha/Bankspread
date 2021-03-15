@@ -41,4 +41,4 @@ def callback(request):
         credentials=pickle.dumps(flow.credentials)
     )
     user.save()
-    return redirect('hitter:welcome')
+    return redirect('hitter:home')

@@ -56,7 +56,7 @@ def callback(request):
     starling.save()
     request.session['Starling'] = starling.id
 
-    return redirect('hitter:welcome')
+    return redirect('hitter:home')
 
 
 def transactions(request):

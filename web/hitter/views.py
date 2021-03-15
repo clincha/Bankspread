@@ -34,4 +34,4 @@ def make_sheet(request):
 
         gc.create("test").sheet1.append_rows(user_starling.get_full_transaction_history())
 
-    return redirect('hitter:welcome')
+    return redirect('hitter:home')
