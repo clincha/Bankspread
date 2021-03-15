@@ -1,23 +1,32 @@
-Hello! and welcome to the site!
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bankspread</title>
+</head>
+<body>
+<h1>Bankspread</h1>
 <br>
-
-{% if starling_login %}
-    You've logged into Starling successfully!
-{% else %}
-    Please <a href="{% url 'starling:welcome' %}">login</a> to Starling.
-{% endif %}
-
+<div id="starling">
+    {% if starling_login %}
+        You've logged into Starling successfully!
+    {% else %}
+        Please <a href="{% url 'starling:welcome' %}">login</a> to Starling.
+    {% endif %}
+</div>
 <br>
-
-{% if google_login %}
-    You've logged into Google successfully!
-{% else %}
-    Please <a href="{% url 'sheeter:welcome' %}">login</a> to Google.
-{% endif %}
-
+<div id="google">
+    {% if google_login %}
+        You've logged into Google successfully!
+    {% else %}
+        Please <a href="{% url 'sheeter:welcome' %}">login</a> to Google.
+    {% endif %}
+</div>
 <br>
-
-{% if starling_login and google_login %}
-    <a href="{% url 'hitter:make-sheet' %}">Create your spreadsheet!</a>
-{% endif %}
+<div id="make-sheet">
+    {% if starling_login and google_login %}
+        <a href="{% url 'hitter:make-sheet' %}">Create your spreadsheet!</a>
+    {% endif %}
+</div>
+</body>
+</html>
