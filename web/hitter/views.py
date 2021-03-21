@@ -36,12 +36,12 @@ def make_sheet(request):
 
         # Transaction History
         transaction_history_sheet = workbook.sheet1
-        transaction_history_sheet.title = "Transaction History"
+        transaction_history_sheet.update_title("Transaction History")
         transaction_history_sheet.append_rows(user_starling.get_full_transaction_history())
 
         # Saving Spaces
         saving_spaces_sheet = workbook.add_worksheet()
-        saving_spaces_sheet.title = "Saving Spaces"
+        saving_spaces_sheet.update_title("Saving Spaces")
         saving_spaces_sheet.append_rows(user_starling.get_saving_spaces())
 
     return redirect('hitter:home')
