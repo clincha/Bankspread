@@ -7,7 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<h1 class="title is-1">Bankspread</h1>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <a class="navbar-item" href="{% url 'hitter:home' %}">
+        <h1 class="title is-3">Bankspread</h1>
+    </a>
+    <a class="navbar-item" href="{% url 'hitter:home' %}">
+        <h1 class="title is-5">Home</h1>
+    </a>
+    <a class="navbar-item" href="{% url 'hitter:privacy' %}">
+        <h1 class="title is-5">Privacy Policy</h1>
+    </a>
+    <a class="navbar-item" href="{% url 'hitter:terms-of-service' %}">
+        <h1 class="title is-5">Terms of Service</h1>
+    </a>
+</nav>
 <br>
 <div class="columns is-vcentered">
     <div class="column">
@@ -59,5 +72,10 @@
         </div>
     </div>
 </div>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p><strong>Bankspread</strong> was lovingly developed by <a href="https://github.com/clincha">Angus Clinch</a></p>
+    </div>
+</footer>
 </body>
 </html>

@@ -35,3 +35,11 @@ def make_sheet(request):
         gc.create("test").sheet1.append_rows(user_starling.get_full_transaction_history())
 
     return redirect('hitter:home')
+
+
+def privacy(request):
+    return render(request, 'hitter/privacy.html')
+
+
+def terms_of_service(request):
+    return render(request, 'hitter/terms-of-service.html')
