@@ -32,7 +32,7 @@
             <br>
             <div class="block is-inline-block">
                 {% if starling_login %}
-                    You've logged into Starling successfully!
+                    <strong style="color: darkgreen">You've logged into Starling successfully!</strong>
                 {% else %}
                     <a class="button is-dark" href="{% url 'starling:welcome' %}">Login to
                         Starling</a>
@@ -49,7 +49,7 @@
             <br>
             <div class="block is-inline-block">
                 {% if google_login %}
-                    You've logged into Google successfully!
+                    <strong style="color: darkgreen">You've logged into Google successfully!</strong>
                 {% else %}
                     <a class="button is-dark" href="{% url 'sheeter:welcome' %}">Login to Google</a>
                 {% endif %}
