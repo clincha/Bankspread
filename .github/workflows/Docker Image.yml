@@ -25,3 +25,16 @@ jobs:
 
       - name: Push Bankspread web to DockerHub
         run: docker image push --all-tags clincha/bankspread
+
+  Deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - Image
+    steps:
+      - name: Run SSH command
+        uses: garygrossgarten/github-action-ssh@v0.6.3
+        with:
+          command: cd /app/Tumble && git pull && docker-compose pull && docker-compose up -d
+          host: bankspread.com
+          username: ubuntu
+          privateKey: ${{ secrets.DEPLOYMENT_SSH_KEY }}
