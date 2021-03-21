@@ -40,9 +40,9 @@ def make_sheet(request):
         transaction_history_sheet.append_rows(user_starling.get_full_transaction_history())
 
         # Saving Spaces
-        saving_spaces_sheet = workbook.add_worksheet()
-        saving_spaces_sheet.update_title("Saving Spaces")
-        saving_spaces_sheet.append_rows(user_starling.get_saving_spaces())
+        saving_spaces = user_starling.get_saving_spaces()
+        saving_spaces_sheet = workbook.add_worksheet("Saving Spaces", len(saving_spaces[0]), len(saving_spaces))
+        saving_spaces_sheet.append_rows(saving_spaces)
 
     return redirect('hitter:home')
 
