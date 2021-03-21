@@ -32,7 +32,17 @@ def make_sheet(request):
 
         gc = gspread.authorize(pickle.loads(user_google.credentials))
 
-        gc.create("test").sheet1.append_rows(user_starling.get_full_transaction_history())
+        workbook = gc.create("Bankspread")
+
+        # Transaction History
+        transaction_history_sheet = workbook.sheet1
+        transaction_history_sheet.title = "Transaction History"
+        transaction_history_sheet.append_rows(user_starling.get_full_transaction_history())
+
+        # Saving Spaces
+        saving_spaces_sheet = workbook.add_worksheet()
+        saving_spaces_sheet.title = "Saving Spaces"
+        saving_spaces_sheet.append_rows(user_starling.get_saving_spaces())
 
     return redirect('hitter:home')
 
