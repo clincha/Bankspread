@@ -18,10 +18,7 @@ jobs:
           command: run python decodeServiceAccount.py
 
       - name: Build Bankspread web
-        run: docker build ./web --tag clincha/bankspread:${{ github.run_number }} --tag clincha/bankspread:latest \
-              --build-arg STARLING_CLIENT_SECRET=${{ secrets.STARLING_CLIENT_SECRET }} \
-              --build-arg DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} \
-              --build-arg BANKSPREAD_VERSION=${{ github.run_number }}
+        run: docker build ./web --tag clincha/bankspread:${{ github.run_number }} --tag clincha/bankspread:latest --build-arg STARLING_CLIENT_SECRET=${{ secrets.STARLING_CLIENT_SECRET }} --build-arg DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} --build-arg BANKSPREAD_VERSION=${{ github.run_number }}
 
       - name: Login to DockerHub
         run: docker login --username "clincha" --password "${{ secrets.DOCKERHUB_PASSWORD }}"
