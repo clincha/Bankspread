@@ -1,6 +1,7 @@
 import pickle
 
 import gspread
+from django.conf import settings
 from django.shortcuts import render, redirect
 
 from sheeter.models import UserGoogle
@@ -8,7 +9,7 @@ from starling.models import Starling
 
 
 def home(request):
-    context = {}
+    context = {'version': settings.BANKSPREAD_VERSION}
     if 'Google' in request.session.keys():
         context['google_login'] = True
 
@@ -19,7 +20,7 @@ def home(request):
 
 
 def make_sheet(request):
-    context = {}
+    context = {'version': settings.BANKSPREAD_VERSION}
     if 'Google' in request.session.keys():
         context['google_login'] = True
 

@@ -1,5 +1,6 @@
 from .base import *
 
+BANKSPREAD_VERSION = 'dev'
 STARLING_CLIENT_ID = "M7V5p9X3Bjj3HikiIfGE"
 STARLING_CLIENT_SECRET = os.getenv("STARLING_CLIENT_SECRET")
 STARLING_REDIRECT_URL = "https://bankspread.com/starling/callback"
