@@ -9,8 +9,11 @@ STARLING_API_URL = STARLING_BASE_URL + "/api/v2"
 STARLING_OAUTH_URL = "https://oauth-sandbox.starlingbank.com"
 GOOGLE_REDIRECT_URL = "https://bankspread.com/sheeter/callback"
 
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = [
     "web"
 ]
